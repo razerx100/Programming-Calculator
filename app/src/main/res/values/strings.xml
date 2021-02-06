@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Programming Calculator</string>
+    <string name="input_hint">Write a value</string>
+    <string name="Decimal">DEC</string>
+    <string name="Binary">BIN</string>
+    <string name="ASCII">ASC</string>
+</resources>
