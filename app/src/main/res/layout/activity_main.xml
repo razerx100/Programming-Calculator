@@ -23,45 +23,6 @@
             android:hint="@string/input_hint" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/decimalButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickDecimal"
-        android:text="@string/Decimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
-
-    <Button
-        android:id="@+id/binaryButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickBinary"
-        android:text="@string/Binary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
-
-    <Button
-        android:id="@+id/asciiButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClickAscii"
-        android:text="@string/ASCII"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
-
     <TextView
         android:id="@+id/outputField"
         android:layout_width="wrap_content"
@@ -71,9 +32,10 @@
         app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
@@ -118,5 +80,69 @@
             android:text="@string/Bit" />
 
     </RadioGroup>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outputField">
+
+        <TableRow
+            android:id="@+id/firstRow"
+            style="?android:attr/buttonBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/decimalBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickDecimal"
+                android:text="@string/Decimal" />
+
+            <Button
+                android:id="@+id/asciiBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickAscii"
+                android:text="@string/ASCII" />
+
+            <Button
+                android:id="@+id/binaryBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickBinary"
+                android:text="@string/Binary" />
+
+            <Button
+                android:id="@+id/hexBtn"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Hexadecimal" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

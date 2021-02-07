@@ -15,3 +15,9 @@
          return env->NewStringUTF(num.c_str());
      }
  }
+ extern "C"
+ JNIEXPORT jstring JNICALL
+ Java_com_example_programmingcalculator_MainActivity_asciiToHex(JNIEnv *env, jobject thiz,
+                                                                jstring str) {
+     return env->NewStringUTF("");
+ }

@@ -2,14 +2,14 @@
 #include <string>
 #include <helper.hpp>
 
-extern "C"
-JNIEXPORT jstring JNICALL
-Java_com_example_programmingcalculator_MainActivity_decimalToBinary(JNIEnv *env, jobject thiz,
-                                                                    jstring str) {
+ extern "C"
+ JNIEXPORT jstring JNICALL
+ Java_com_example_programmingcalculator_MainActivity_decimalToBinary(JNIEnv *env, jobject thiz,
+                                                                         jstring str) {
     jboolean isCopy;
     std::string data = std::string(env->GetStringUTFChars(str, &isCopy));
     if (!is_number(data))
-        return env->NewStringUTF("");
+        return env->NewStringUTF(INVALID.c_str());
     else {
         unsigned int value = std::stoul(data);
         std::string bin;
@@ -27,4 +27,21 @@ Java_com_example_programmingcalculator_MainActivity_decimalToBinary(JNIEnv *env,
         formatBinary(bin);
         return env->NewStringUTF(bin.c_str());
     }
+}
+
+ extern "C"
+ JNIEXPORT jstring JNICALL
+ Java_com_example_programmingcalculator_MainActivity_decimalToAscii(JNIEnv *env, jobject thiz,
+                                                                    jstring str) {
+     jboolean isCopy;
+     std::string data = std::string(env->GetStringUTFChars(str, &isCopy));
+     if (!is_number(data))
+         return env->NewStringUTF(INVALID.c_str());
+     else {
+         unsigned int value = std::stoul(data);
+         if(value > 127U)
+             return env->NewStringUTF(INVALID.c_str());
+         else
+            return env->NewStringUTF(std::string(1, static_cast<char >(value)).c_str());
+     }
 }
