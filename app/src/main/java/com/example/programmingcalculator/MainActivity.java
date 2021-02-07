@@ -10,7 +10,7 @@ import com.example.programmingcalculator.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     static {
-        System.loadLibrary("cppSource");
+        System.loadLibrary("c-lib");
     }
 
     private ActivityMainBinding binding;

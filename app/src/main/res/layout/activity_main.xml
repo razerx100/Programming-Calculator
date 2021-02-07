@@ -14,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04000002">
+        app:layout_constraintVertical_bias="0.100000024">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/inputField"
@@ -72,4 +72,51 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.258" />
+
+    <RadioGroup
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/inputModeDecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Decimal" />
+
+        <RadioButton
+            android:id="@+id/inputModeBinary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Binary" />
+
+        <RadioButton
+            android:id="@+id/inputModeAscii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ASCII" />
+
+        <RadioButton
+            android:id="@+id/inputModeHexadecimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Hexadecimal" />
+
+        <RadioButton
+            android:id="@+id/inputModeBit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Bit" />
+
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

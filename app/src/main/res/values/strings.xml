@@ -4,4 +4,6 @@
     <string name="Decimal">DEC</string>
     <string name="Binary">BIN</string>
     <string name="ASCII">ASC</string>
+    <string name="Hexadecimal">HEX</string>
+    <string name="Bit">BIT</string>
 </resources>
