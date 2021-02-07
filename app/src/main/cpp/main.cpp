@@ -9,6 +9,15 @@ bool is_zero(const std::string& str){
     return std::find_if(str.begin(), str.end(), [](char c){return c != '0';}) == str.end();
 }
 
+void formatBinary(std::string& str){
+    for(int i = str.length() - 4; i > 0; i -= 4)
+        str.insert(i, " ");
+}
+
+void formatDecimal(std::string& str){
+    for(int i = str.length() - 3; i > 0; i -= 3)
+        str.insert(i, " ");
+}
 
 extern "C"
 JNIEXPORT jstring JNICALL
@@ -32,6 +41,7 @@ Java_com_example_programmingcalculator_MainActivity_decimalToBinary(JNIEnv *env,
                 value = value >> 1U;
             }
         }
+        formatBinary(bin);
         return env->NewStringUTF(bin.c_str());
     }
 }
@@ -75,6 +85,7 @@ Java_com_example_programmingcalculator_MainActivity_binaryToDecimal(JNIEnv *env,
                 num = num | 1U;
             dec = std::to_string(num);
         }
+        formatDecimal(dec);
         return env->NewStringUTF(dec.c_str());
     }
 }
