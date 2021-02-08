@@ -23,6 +23,9 @@ extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_example_programmingcalculator_MainActivity_asciiButtonFunction(JNIEnv *env, jobject thiz,
                                                                         jstring str, jint inputId) {
+    jboolean isCopy;
+    std::string data = std::string(env->GetStringUTFChars(str, &isCopy));
+
     return env->NewStringUTF("");
 }
 
@@ -30,7 +33,15 @@ extern "C"
 JNIEXPORT jstring JNICALL
 Java_com_example_programmingcalculator_MainActivity_hexButtonFunction(JNIEnv *env, jobject thiz,
                                                                       jstring str, jint inputId) {
-    return env->NewStringUTF("");
+    jboolean isCopy;
+    std::string data = std::string(env->GetStringUTFChars(str, &isCopy));
+
+    if(inputId == inputDecimal)
+        return env->NewStringUTF(decimalToHex(data).c_str());
+    else if(inputId == inputAscii)
+        return env->NewStringUTF(asciiToHex(data).c_str());
+    else
+        return env->NewStringUTF("");
 }
 
 extern "C"

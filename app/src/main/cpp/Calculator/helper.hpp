@@ -6,8 +6,8 @@ bool is_zero(const std::string& str);
 bool is_binary(const std::string& str);
 bool is_hex(const std::string& str);
 
-void formatBinary(std::string& str);
-void formatDecimal(std::string& str);
+void formatBinary(std::string& binary);
+void formatDecimal(std::string& decimal);
 
 static std::string INVALID = "Invalid Input.";
 #endif

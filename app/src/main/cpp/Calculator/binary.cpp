@@ -1,14 +1,14 @@
 #include "binary.hpp"
 #include "helper.hpp"
 
-std::string decimalToBinary(const std::string& str){
-    if (!is_number(str))
+std::string decimalToBinary(const std::string& decimal){
+    if (!is_number(decimal))
         return INVALID;
     else {
-        unsigned int value = std::stoul(str);
+        unsigned int value = std::stoul(decimal);
         std::string bin;
-        if (is_zero(str))
-            bin = str;
+        if (is_zero(decimal))
+            bin = decimal;
         else {
             while (value > 0) {
                 if (value & 1U)

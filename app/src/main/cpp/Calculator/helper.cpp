@@ -32,12 +32,12 @@ bool is_hex(const std::string& str){
     return !str.empty() and std::find_if(str.begin(), str.end(),[](char c){return !hex_table[c];}) == str.end();
 }
 
-void formatBinary(std::string& str){
-    for(int i = str.length() - 4; i > 0; i -= 4)
-        str.insert(i, " ");
+void formatBinary(std::string& binary){
+    for(int i = binary.length() - 4; i > 0; i -= 4)
+        binary.insert(i, " ");
 }
 
-void formatDecimal(std::string& str){
-    for(int i = str.length() - 3; i > 0; i -= 3)
-        str.insert(i, " ");
+void formatDecimal(std::string& decimal){
+    for(int i = decimal.length() - 3; i > 0; i -= 3)
+        decimal.insert(i, " ");
 }
