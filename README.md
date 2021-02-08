@@ -4,6 +4,7 @@ A simple calculator to quickly find decimal, hexadecimal, ASCII, Binary values a
 ## Requirements
 Android Studio.
 
-#### Android Studio SDK Tools
+## Android Studio SDK Tools
 NDK.\
 cmake.
+
