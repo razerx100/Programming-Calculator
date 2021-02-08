@@ -2,9 +2,11 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project("ProgrammingCalculator")
 
-include_directories(header)
+include_directories(Calculator)
 
-add_library(c-lib SHARED asciiInput.cpp binaryInput.cpp decimalInput.cpp helper.cpp)
+file(GLOB SRC Calculator/*.cpp)
+
+add_library(c-lib SHARED javaWrapper.cpp ${SRC})
 
 find_library(log-lib log )
 

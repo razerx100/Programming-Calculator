@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     }
 
     private ActivityMainBinding binding;
+    private int inputModeId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,62 +30,30 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
-        if(i == binding.inputModeDecimal.getId()){
-            setVisible();
-            binding.decimalBtn.setEnabled(false);
-            binding.decimalBtn.setVisibility(View.INVISIBLE);
-        }
-        else if(i == binding.inputModeAscii.getId()){
-            setVisible();
-            binding.asciiBtn.setEnabled(false);
-            binding.asciiBtn.setVisibility(View.INVISIBLE);
-        }
-        else if(i == binding.inputModeBinary.getId()){
-            setVisible();
-            binding.binaryBtn.setEnabled(false);
-            binding.binaryBtn.setVisibility(View.INVISIBLE);
-        }
-        else {
-            binding.firstRow.setEnabled(false);
-            binding.firstRow.setVisibility(View.INVISIBLE);
-        }
-    }
-
-    void enableAllButtons(){
-        binding.binaryBtn.setEnabled(true);
-        binding.binaryBtn.setVisibility(View.VISIBLE);
-        binding.decimalBtn.setEnabled(true);
-        binding.decimalBtn.setVisibility(View.VISIBLE);
-        binding.asciiBtn.setEnabled(true);
-        binding.asciiBtn.setVisibility(View.VISIBLE);
-    }
-    void setVisible(){
-        binding.firstRow.setEnabled(true);
-        binding.firstRow.setVisibility(View.VISIBLE);
-        enableAllButtons();
+        inputModeId = i;
     }
 
     public void onClickDecimal(View view){
-        if(binding.inputModeAscii.isChecked())
-            binding.outputField.setText(asciiToDecimal(binding.inputField.getText().toString()));
-        else if(binding.inputModeBinary.isChecked())
-            binding.outputField.setText(binaryToDecimal(binding.inputField.getText().toString()));
+        binding.outputField.setText(
+                decimalButtonFunction(binding.inputField.getText().toString(), inputModeId));
     }
 
     public void onClickAscii(View view){
-        binding.outputField.setText(decimalToAscii(binding.inputField.getText().toString()));
+        binding.outputField.setText(
+                asciiButtonFunction(binding.inputField.getText().toString(), inputModeId));
     }
 
     public void onClickBinary(View view){
-        binding.outputField.setText(decimalToBinary(binding.inputField.getText().toString()));
+        binding.outputField.setText(
+                binaryButtonFunction(binding.inputField.getText().toString(), inputModeId));
     }
     public void onClickHex(View view){
-
+        binding.outputField.setText(
+                hexButtonFunction(binding.inputField.getText().toString(), inputModeId));
     }
 
-    public native String decimalToBinary(String str);
-    public native String decimalToAscii(String str);
-    public native String asciiToDecimal(String str);
-    public native String binaryToDecimal(String str);
-    public native String asciiToHex(String str);
+    public native String binaryButtonFunction(String str, int inputId);
+    public native String asciiButtonFunction(String str, int inputId);
+    public native String decimalButtonFunction(String str, int inputId);
+    public native String hexButtonFunction(String str, int inputId);
 }
