@@ -32,6 +32,14 @@ bool is_hex(const std::string& str){
     return !str.empty() and std::find_if(str.begin(), str.end(),[](char c){return !hex_table[c];}) == str.end();
 }
 
+bool is_ascii(const std::string& str){
+    return !str.empty() and str.length() == 1;
+}
+
+bool is_bits_valid(const std::string& bits){
+    return !bits.empty() and is_number(bits) and std::stoi(bits) <= 64;
+}
+
 void formatBinary(std::string& binary){
     for(int i = binary.length() - 4; i > 0; i -= 4)
         binary.insert(i, " ");
